@@ -1,0 +1,27 @@
+{
+  "name": "hangman",
+  "version": "1.0.0",
+  "description": "Using JS and HTML, create a version of the game Hangman (http://en.wikipedia.org/wiki/Hangman_(game)). The game can generally be implemented however you want but should adhere to the following:",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "node_modules/.bin/gulp"
+  },
+  "keywords": [],
+  "author": "Samantha Bretous <sam@samanthabretous.com>",
+  "license": "MIT",
+  "dependencies": {
+    "browserify": "^14.4.0",
+    "event-stream": "^3.3.4",
+    "glob": "^7.1.2",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-util": "^3.0.8",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.9.0"
+  }
+}
