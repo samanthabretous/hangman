@@ -1,0 +1,24 @@
+<!doctype>
+<html>
+  <head>
+    <title>Hangman</title>
+    <link rel="stylesheet" href="dist/style.min.css">
+  </head>
+  <body>
+    <section id="word-js" class="word">
+      <ul id="word__list-js"></ul>
+    </section>
+    <section id="letters-js" class="letters">Letters Guessed:
+      <ul id="letters__list-js"></ul>
+    </section>
+    <section class="guesses">Remaining Guesses:
+      <span id="guesses__number-js"></span>
+    </section>
+    <form class="guess">
+      <input type="text" id="guess__input-js">
+      <button id="guess__button-js"></button>
+    </form>
+    <button id="reset__button-js">Restart Game</button>
+    <script type="text/javascript" src="dist/src/play.bundle.js" defer></script>
+  </body>
+</html>

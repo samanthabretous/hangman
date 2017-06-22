@@ -4,29 +4,14 @@
     <title>Hangman</title>
     <link rel="stylesheet" href="dist/style.min.css">
   </head>
-  <body>
-    <div id="intro-js" class="intro">
-      <h1>Let's play Hangman</h1>
-      <p>Enter a word to begin</p>
-      <form>
-        <input id="intro__input-js"type="text" placeholder="Enter word">
-        <button id="intro__button-js">Submit</button>
-      </form>
-    </div>
-    <section id="word-js" class="word">
-      <ul id="word__list-js"></ul>
-    </section>
-    <section id="letters-js" class="letters">Letters Guessed:
-      <ul id="letters__list-js"></ul>
-    </section>
-    <section class="guesses">Remaining Guesses:
-      <span id="guesses__number-js"></span>
-    </section>
-    <form class="guess">
-      <input type="text" id="guess__input-js">
-      <button id="guess__button-js"></button>
+  <body class="home">
+    <figure class="logo">
+      <img src="dist/images/logo.png" alt="hangman logo">
+    </figure>
+    <form class="intro__form" action="play.html">
+      <input id="intro__input-js" type="text" placeholder="Enter word">
+      <button id="intro__button-js">Submit</button>
     </form>
-    <button id="reset__button-js">Restart Game</button>
     <script type="text/javascript" src="dist/src/index.bundle.js" defer></script>
   </body>
 </html>

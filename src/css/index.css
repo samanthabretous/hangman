@@ -1,3 +1,55 @@
-body {
-  background: yellow;
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 60%;
+  margin-bottom: 5%;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+.intro__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 55%;
+  height: 15%;
+}
+
+.intro__form input,
+.intro__form button {
+  height: 40%;
+  font-size: 1.75em;
+}
+
+.intro__form input {
+  padding: 1%;
+}
+
+.intro__form button {
+  border: none;
+  background: #93B7BE;
+  color: #611C35;
+}
+
+/*-------------------------------------
+  Phone/ Tablet Media Queries
+--------------------------------------*/
+@media screen and (max-width : 900px) {
+  .logo {
+    width: 70%;
+    margin-bottom: 5%;
+  }
+
+  .intro__form {
+    width: 65%;
+    height: 15%;
+  }
 }

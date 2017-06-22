@@ -9,3 +9,9 @@ The game can generally be implemented however you want but should adhere to the 
 6) If you guess the word display a "You win!" alert, otherwise display a "You lose!" alert.
 
 This should represent production-ready code, so show us code you would be proud to deploy.
+
+1. set up basic game function
+2. create error testing
+  a. did user guess letter already
+  b. make sure user only enters one word
+3. design ui

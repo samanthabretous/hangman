@@ -16,13 +16,15 @@ const Game = (() => {
     event.preventDefault();
     const guess = guessInput.value;
     const updatedList = Word.updateWordList(state.word, guess);
-    if(updatedList.allLettersFilled) Render.showWinner();
+    console.log(updatedList.isWordCompleted);
+    if(updatedList.isWordCompleted) Render.showWinner();
     else if(updatedList.isInWord) state.correctLetters.push(guess)
     else {
       state.wrongLetters.push(guess);
       Render.renderWrongLetters(state.wrongLetters)
       state.guesses--
       Render.renderRemainingGuesses(state.guesses)
+      if(state.guesses === 0) Render.showLoser();
     }
     guessInput.value = '';
   }
@@ -33,17 +35,13 @@ const Game = (() => {
     state = Object.assign({}, resetState);
     document.getElementById('intro-js').style.display = 'initial';
     Word.resetWordList();
-    console.log(state);
     Render.renderWrongLetters(state.wrongLetters)
   }
   return {
-    addWord(word) {
-      state.word = word;
-      Word.renderWordList(state.word);
-    },
     init() {
-      const guessButton = document.getElementById('guess__button-js');
-      guessButton.addEventListener('click', addGuess);
+      state.word = localStorage.getItem('hangman');
+      Word.renderWordList(state.word);
+      document.getElementById('guess__button-js').addEventListener('click', addGuess);
       document.getElementById('reset__button-js').addEventListener('click', reset);
     }
   };

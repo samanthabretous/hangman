@@ -6,17 +6,8 @@ const Intro = (() => {
   const input = document.getElementById('intro__input-js');
 
   const createWord = (event) => {
-    event.preventDefault();
-    Game.addWord(input.value)
-    hideIntro();
+    window.localStorage.setItem('hangman', input.value);
   }
-
-  const hideIntro = () => {
-    input.value = '';
-    wordButton.removeEventListener('click', createWord, true);
-    introDiv.style.display = 'none';
-  }
-
 
   return {
     init() {

@@ -5,6 +5,10 @@ const Render = (() => {
     alert('showWinner')
   };
 
+  const showLoser = () => {
+    alert('showLoser')
+  };
+
   const renderWrongLetters = (letterArr) => {
     const listParent = document.getElementById('letters-js');
     const oldList = document.getElementById('letters__list-js');
@@ -25,6 +29,7 @@ const Render = (() => {
 
   return {
     showWinner,
+    showLoser,
     renderWrongLetters,
     renderRemainingGuesses,
   }
