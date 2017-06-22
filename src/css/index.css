@@ -21,12 +21,13 @@
   justify-content: space-between;
   width: 55%;
   height: 15%;
+  position: relative;
 }
 
 .intro__form input,
 .intro__form button {
   height: 40%;
-  font-size: 1.75em;
+  font-size: 1.75rem;
 }
 
 .intro__form input {
@@ -39,9 +40,32 @@
   color: #611C35;
 }
 
+.intro__form span {
+  position: absolute;
+  bottom: -90%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+
+
 /*-------------------------------------
   Phone/ Tablet Media Queries
 --------------------------------------*/
+@media screen and (max-width : 360px) {
+  .intro__form span{
+    bottom: -350%;
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width : 660px) {
+  .intro__form span{
+    bottom: -150%;
+    font-size: 1.25rem;
+  }
+}
 @media screen and (max-width : 900px) {
   .logo {
     width: 70%;

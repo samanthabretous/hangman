@@ -9,17 +9,20 @@ const Render = (() => {
     alert('showLoser')
   };
 
-  const renderWrongLetters = (letterArr) => {
+  const renderUsedLetters = (letterArr, letter) => {
     const listParent = document.getElementById('letters-js');
     const oldList = document.getElementById('letters__list-js');
     const newList = document.createElement('ul');
     newList.id = 'letters__list-js';
     for(let i = 0; i < letterArr.length; i++) {
-      const letter = document.createElement('li');
-      letter.innerHTML = letterArr[i];
-      newList.appendChild(letter);
+      const newLetter = document.createElement('li');
+      if (letterArr[i] === letter) {
+        letterArr[i] = null;
+      } else {
+        newLetter.innerHTML = letterArr[i];
+      }
+      newList.appendChild(newLetter);
     }
-    console.log(newList);
     listParent.replaceChild(newList, oldList);
   };
 
@@ -30,7 +33,7 @@ const Render = (() => {
   return {
     showWinner,
     showLoser,
-    renderWrongLetters,
+    renderUsedLetters,
     renderRemainingGuesses,
   }
 })();

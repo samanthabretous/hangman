@@ -1,9 +1,36 @@
 const Word = (() => {
+  const determineWordListWidth = (word, wordList) => {
+    let width = '100%';
+    const wl = word.length;
+    console.log(wl)
+    switch (wl) {
+      case 1: case 2: case 3:
+        width = '40%';
+        break;
+      case 4: case 5:
+      console.log(wl)
+        width = '50%';
+        break;
+      case 6: case 7:
+        width = '60%';
+        break;
+      case 8: case 9:
+        width = '75%';
+        break;
+      case 10: case 11:
+        width = '90%';
+        break;
+    }
+    return wordList.style.width = width;
+  };
+
   const renderWordList = (word) => {
     const wordList = document.getElementById('word__list-js');
+    determineWordListWidth(word, wordList);
     for(let i = 0; i < word.length; i++) {
       const li = document.createElement('li');
       li.classList.add('underscore');
+      li.innerHTML = '&nbsp;';
       wordList.append(li);
     }
   };
@@ -17,9 +44,8 @@ const Word = (() => {
         lis[i].classList.remove('underscore');
         isInWord = true;
       }
-      console.log(typeof lis[i].innerHTML)
       // tally up all the filled in blanks
-      if(lis[i].innerHTML !== '') allLettersFilled++
+      if(lis[i].innerHTML !== '&nbsp;') allLettersFilled++
     }
     return { isInWord, isWordCompleted: allLettersFilled === word.length };
   };
@@ -29,6 +55,7 @@ const Word = (() => {
     const newList = document.createElement('ul');
     newList.id = 'word__list-js';
     wordListParent.replaceChild(newList, document.getElementById('word__list-js'));
+    localStorage.set('hangman', '');
   };
   return {
     renderWordList,

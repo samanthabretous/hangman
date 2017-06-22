@@ -2,26 +2,24 @@ const Render = require('./render.js');
 const Word = require('./word.js');
 
 const Game = (() => {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
   const resetState = {
     word: '',
-    guesses: 10,
-    wrongLetters: [],
-    correctLetters: [],
+    guesses: 8,
+    usedLetters: alphabet.slice(0),
   }
 
   let state = Object.assign({}, resetState);
 
   const addGuess = (event) => {
-    const guessInput = document.getElementById('guess__input-js');
     event.preventDefault();
+    const guessInput = document.getElementById('guess__input-js');
     const guess = guessInput.value;
     const updatedList = Word.updateWordList(state.word, guess);
-    console.log(updatedList.isWordCompleted);
+    Render.renderUsedLetters(state.usedLetters, guess)
     if(updatedList.isWordCompleted) Render.showWinner();
-    else if(updatedList.isInWord) state.correctLetters.push(guess)
-    else {
-      state.wrongLetters.push(guess);
-      Render.renderWrongLetters(state.wrongLetters)
+    // wrong guess
+    else if (!updatedList.isInWord) {
       state.guesses--
       Render.renderRemainingGuesses(state.guesses)
       if(state.guesses === 0) Render.showLoser();
@@ -30,17 +28,22 @@ const Game = (() => {
   }
 
   const reset = () => {
-    resetState.wrongLetters = [];
-    resetState.correctLetters = [];
+    resetState.wrongLetters = alphabet.slice(0);
     state = Object.assign({}, resetState);
-    document.getElementById('intro-js').style.display = 'initial';
     Word.resetWordList();
-    Render.renderWrongLetters(state.wrongLetters)
+    Render.renderWrongLetters(state.usedLetters)
   }
+
   return {
     init() {
-      state.word = localStorage.getItem('hangman');
+      // state.word = localStorage.getItem('hangman');
+      state.word = 'five'
+      console.log(state.word);
       Word.renderWordList(state.word);
+      Render.renderUsedLetters(state.usedLetters);
+      Render.renderRemainingGuesses(state.guesses)
+
+      // add listeners
       document.getElementById('guess__button-js').addEventListener('click', addGuess);
       document.getElementById('reset__button-js').addEventListener('click', reset);
     }

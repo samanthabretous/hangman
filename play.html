@@ -4,21 +4,24 @@
     <title>Hangman</title>
     <link rel="stylesheet" href="dist/style.min.css">
   </head>
-  <body>
+  <body class="play">
     <section id="word-js" class="word">
       <ul id="word__list-js"></ul>
     </section>
-    <section id="letters-js" class="letters">Letters Guessed:
-      <ul id="letters__list-js"></ul>
-    </section>
-    <section class="guesses">Remaining Guesses:
-      <span id="guesses__number-js"></span>
-    </section>
+    <article class="main">
+      <section id="letters-js" class="letters">
+        <ul id="letters__list-js"></ul>
+      </section>
+      <section class="guesses">
+        <p>Remaining Guesses:</p>
+        <span id="guesses__number-js"></span>
+      </section>
+    </article>
     <form class="guess">
-      <input type="text" id="guess__input-js">
-      <button id="guess__button-js"></button>
+      <input type="text" maxlength="1" id="guess__input-js">
+      <button id="guess__button-js">Guess</button>
     </form>
-    <button id="reset__button-js">Restart Game</button>
+    <a href="index.html" id="reset__button-js">Restart Game</a>
     <script type="text/javascript" src="dist/src/play.bundle.js" defer></script>
   </body>
 </html>
