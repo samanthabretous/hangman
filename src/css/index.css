@@ -54,18 +54,6 @@
 /*-------------------------------------
   Phone/ Tablet Media Queries
 --------------------------------------*/
-@media screen and (max-width : 360px) {
-  .intro__form span{
-    bottom: -350%;
-    font-size: 1rem;
-  }
-}
-@media screen and (max-width : 660px) {
-  .intro__form span{
-    bottom: -150%;
-    font-size: 1.25rem;
-  }
-}
 @media screen and (max-width : 900px) {
   .logo {
     width: 70%;
@@ -75,5 +63,17 @@
   .intro__form {
     width: 65%;
     height: 15%;
+  }
+}
+@media screen and (max-width : 660px) {
+  .intro__form span {
+    bottom: -150%;
+    font-size: 1.25rem;
+  }
+}
+@media screen and (max-width : 360px) {
+  .intro__form span{
+    bottom: -350%;
+    font-size: 1rem;
   }
 }

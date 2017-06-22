@@ -5,6 +5,9 @@ yellow: #FFD23F;
 darkPurple: #611C35;
 purple: #785964;*/
 
+* {
+  text-align: center;
+}
 body {
   background: #785964;
   font-size: 1.75em;

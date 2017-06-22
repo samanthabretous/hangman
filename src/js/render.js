@@ -1,12 +1,12 @@
 const Render = (() => {
-
-
-  const showWinner = () => {
-    alert('showWinner')
+  const showWinner = (word) => {
+    alert(`Congrats you guessed ${word} correctly\n Play again?`);
+    window.location.href = 'index.html';
   };
 
-  const showLoser = () => {
-    alert('showLoser')
+  const showLoser = (word) => {
+    alert(`You lost the word was ${word}.\n Play again?`);
+    window.location.href = 'index.html';
   };
 
   const renderUsedLetters = (letterArr, letter) => {
@@ -14,7 +14,7 @@ const Render = (() => {
     const oldList = document.getElementById('letters__list-js');
     const newList = document.createElement('ul');
     newList.id = 'letters__list-js';
-    for(let i = 0; i < letterArr.length; i++) {
+    for (let i = 0; i < letterArr.length; i += 1) {
       const newLetter = document.createElement('li');
       if (letterArr[i] === letter) {
         letterArr[i] = null;
@@ -35,7 +35,7 @@ const Render = (() => {
     showLoser,
     renderUsedLetters,
     renderRemainingGuesses,
-  }
+  };
 })();
 
 module.exports = Render;
